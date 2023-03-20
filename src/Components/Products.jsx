@@ -34,7 +34,7 @@ import './products.css'
       <div className='box'>
          <div className='left_box'>
           
-         <div>
+         <div className="cat_data">
                <h3 onClick={() => setcategory(data[0])}>Electronics</h3>
             <h3 onClick={() => setcategory(data[1])}>Jewelery</h3>
             <h3 onClick={() => setcategory(data[2])}>Women's Clothing</h3>
