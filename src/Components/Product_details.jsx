@@ -6,7 +6,7 @@ const Details = ({detail}) => {
   return (
     <div className='container det '>
         <h1 className='header11 '> {detail.category} Category</h1>
-        <Link to="/Products"><div className="cross center">↞</div></Link>
+        <Link to="/Products"><div className="cross center">cancel</div></Link>
         <img src={detail.image} alt="" height={300} />
         <div className="right detr col">
             <div className="name">
@@ -29,3 +29,4 @@ const Details = ({detail}) => {
     </div>
   )
 }
+export default Details
