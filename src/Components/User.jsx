@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react'
 import "./user.css"
 
 const User = () => {
+    
+      const data = useSelector((state) => state);
+    const [userdata, setUserdata] = useState([...data.usersDetail])
+    
     const [gender, setgender] = useState("all")
-    const [Udata, setUdata] = useState([])
+    const [Userdata, setUdata] = useState([])
     function hello(e){
         setgender(e.target.value)
         console.log(gender);
-        console.log(Udata);
+        console.log(Userdata);
 
     }
     useEffect(()=>{
@@ -16,14 +20,14 @@ const User = () => {
     async function getData(){
         const res=await fetch(`https://randomuser.me/api/?results=30`)
         const data= await res.json();
-        console.log(Udata);
+        console.log(Userdata);
         if(gender==="male" || gender==="female"){   
         const filtereddata=data.results.filter((e)=>e.gender===gender)
         setUdata(filtereddata);
     }
     else if(gender==="all"){
         setUdata(data.results)
-        console.log(Udata);
+        console.log(Userdata);
         console.log("elseif");
     }
     }
@@ -53,7 +57,7 @@ const User = () => {
             <div className='gender'>GENDER</div>
         </div>
         <div className="card1 col">
-        {Udata.length>1?(Udata.map((e,i)=>{
+        {Userdata.length>1?(Userdata.map((e,i)=>{
             return(
                 <div className='card2' key={i}>
                 <div className='img'>
