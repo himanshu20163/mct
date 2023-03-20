@@ -44,7 +44,7 @@ import './products.css'
          <div className='right_box'>
            {data == '' ? <h5>data is loading ...</h5> : null}
            <h1>{pdttitle.map((e)=>{
-             return <li onClick={()=>productdetail()} style={{display:"flex",justifyContent:"space-between"}} ><Link to={"/Product_details"}>{e.title}</Link></li>
+             return <li onClick={()=>productdetail()} ><Link to={"/Product_details"}>{e.title}</Link></li>
            })}</h1>
          </div>
       </div>
