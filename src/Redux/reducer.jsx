@@ -1,12 +1,26 @@
-import { ADD_TO_CART } from "./constant"
+const usersDetail = [];
 
-export const cartData = (data = [], action) => {
-    if (action.type === ADD_TO_CART) {
-    console.warn("ADD_TO_CART condtion ", action)
 
-        // some logic
-        return data
-    } else {
-        return "no action called"
-    }
-}
+const userdetails = async() => {
+    const res= await  fetch("https://randomuser.me/api/?results=20")
+    const data = await res.json()
+    return usersDetail.push(...data.results)
+
+};
+userdetails();
+
+const initialState = {
+	usersDetail
+};
+
+const reducers = (state = initialState, action) => {
+ if (action.type === "USERS"){
+    console.log("Users",state)
+    return state
+ }
+ else{
+    return state;
+ }
+		
+};
+export default reducers;
